@@ -2,6 +2,12 @@
 
 **Is Proxima c in Gaia DR4's epoch astrometry?** This is a pre-registered test, fixed before the data exist.
 
+**Status (2026-11-25).** Validation passed all 25 gates on ESA's DR4 pre-release (`GRADING-validation.md`,
+`results/validation/`). A rehearsal on a G ~ 9 pre-release star forecasts that DR4 can settle the question
+at that star's precision: every injected 5.8 Earth-mass (m sin i) planet was detected, and a non-detection
+would exclude masses above about 2 Earth masses. Proxima's own noise may be worse. The test runs on Proxima's
+real epochs on DR4 day, 2 December 2026 (`dr4day/job.template.json`, `dr4_bootstrap.py`, tag v0.2.1).
+
 Proxima c is a planet candidate. It was found in radial velocities in 2020 (P of about 5.2 yr, m sin i of
 5.8 +- 1.9 Earth masses) but has never been confirmed. Kervella et al. (2022) concluded that its signal "will
 likely be detectable only in the epoch astrometry of Gaia". Gaia DR4, due on 2 December 2026, is the first
@@ -24,7 +30,9 @@ This repository contains:
     of HD 114762 and Gaia-4, null results on three quasars, and injected orbits in a G ~ 9 star.
   - **Rehearsal.** The full Proxima c test is run on that G ~ 9 star, as a sensitivity forecast.
 - `proxima_job.py`, the test itself, to run on Proxima's DR4 epochs once they are public.
-- `test_gaiaorb.py`, the tests (`python -m unittest -v test_gaiaorb`, standard library only).
+- `dr4_bootstrap.py`, a standard-library launcher. It downloads a fixed tag of this repository, runs the tests
+  and then runs `proxima_job.py`.
+- `test_gaiaorb.py`, `test_io_gaia.py` and `test_dr4_bootstrap.py`, the tests (standard library only).
 
 Run:
 - validation: `pip install -r requirements.txt && python validate_job.py --data-dir data --out-dir out`

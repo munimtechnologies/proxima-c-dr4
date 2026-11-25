@@ -1,0 +1,83 @@
+===== setup-01-pip: pip install -r requirements.txt
+Collecting astropy>=5.0 (from -r requirements.txt (line 1))
+  Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting astropy-iers-data>=0.2026.10.19.0.52.1 (from astropy>=5.0->-r requirements.txt (line 1))
+  Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl.metadata (3.2 kB)
+Collecting numpy>=2.0 (from astropy>=5.0->-r requirements.txt (line 1))
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting packaging>=25.0 (from astropy>=5.0->-r requirements.txt (line 1))
+  Downloading packaging-26.4-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyerfa>=2.0.1.3 (from astropy>=5.0->-r requirements.txt (line 1))
+  Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.7 kB)
+Collecting PyYAML>=6.0.0 (from astropy>=5.0->-r requirements.txt (line 1))
+  Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Downloading astropy-8.0.3-cp311-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (10.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.4/10.4 MB 9.6 MB/s eta 0:00:00
+Downloading astropy_iers_data-0.2026.11.23.0.35.53-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 7.9 MB/s eta 0:00:00
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 9.5 MB/s eta 0:00:00
+Downloading packaging-26.4-py3-none-any.whl (140 kB)
+Downloading pyerfa-2.0.1.5-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (738 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 738.7/738.7 kB 6.7 MB/s eta 0:00:00
+Downloading pyyaml-6.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (849 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 849.2/849.2 kB 8.1 MB/s eta 0:00:00
+Installing collected packages: PyYAML, packaging, numpy, astropy-iers-data, pyerfa, astropy
+Successfully installed PyYAML-6.0.4 astropy-8.0.3 astropy-iers-data-0.2026.11.23.0.35.53 numpy-2.5.5 packaging-26.4 pyerfa-2.0.1.5
+
+===== run-01-python: python -m unittest -v test_gaiaorb
+
+===== run-02-python: python validate_job.py --data-dir /data --out-dir /out
+[    6.2s] downloaded https://anonftp.cosmos.esa.int/pub/GAIA_PUBLIC_DATA/Gaia_DR4/dr4-prerelease/gaia-dr4-prerelease-epoch-astrometry_2026-06-26.zip (625651 bytes)
+[    6.3s] files: ['GAIA_DR4_PRERELEASE_EPOCH_ASTROMETRY_RAW.xml', 'readme.txt']
+[    8.4s] rows: 1008, columns: ['ac_rate', 'agis_source_excess_noise', 'blended', 'calculated_pos_ac', 'ccd_proc_flags', 'centroid_pos_ac', 'centroid_pos_al', 'centroid_pos_error_ac', 'centroid_pos_error_al', 'colour_factor_ac', 'colour_factor_al', 'dec0', 'g_class', 'g_mag', 'gates', 'ipd_error_ac', 'ipd_error_al', 'mu', 'multipeak', 'nu_eff_error', 'nu_eff_used_in_astrometry', 'obs_time_bary_corr', 'obs_time_tcb', 'parallax_factor_ac', 'parallax_factor_al', 'ra0', 'scan_pos_angle', 'solution_id', 'source_dist_to_last_ci', 'source_id', 'sub_pixel_coord', 'transit_acq_flags', 'transit_id', 'transit_proc_flags', 'used_by_agis_ac', 'used_by_agis_al', 'zeta']
+[    8.4s] source 10973744521070720: {'source_id': 10973744521070720, 'n_rows': 62, 'n_transits': 62, 'n_points': 59, 'ccd_total': 620, 'ccd_used': 515, 'too_few_ccd': 3, 'span_yr': 5.035069215223567, 'median_sigma_mas': 1.2974690667036413, 'median_inflation': 1.0}
+[    8.4s] source 1457486023639239296: {'source_id': 1457486023639239296, 'n_rows': 115, 'n_transits': 115, 'n_points': 93, 'ccd_total': 1150, 'ccd_used': 824, 'too_few_ccd': 22, 'span_yr': 4.940559884304398, 'median_sigma_mas': 0.03129990789149865, 'median_inflation': 1.2021188614440979}
+[    8.4s] source 1663617687609809280: {'source_id': 1663617687609809280, 'n_rows': 95, 'n_transits': 95, 'n_points': 89, 'ccd_total': 950, 'ccd_used': 781, 'too_few_ccd': 6, 'span_yr': 5.206875847927147, 'median_sigma_mas': 0.05617234584439672, 'median_inflation': 1.0}
+[    8.4s] source 20694084440761600: {'source_id': 20694084440761600, 'n_rows': 74, 'n_transits': 74, 'n_points': 65, 'ccd_total': 740, 'ccd_used': 576, 'too_few_ccd': 9, 'span_yr': 5.044861623322383, 'median_sigma_mas': 0.05157943804128472, 'median_inflation': 1.0}
+[    8.5s] source 2237987199365376: {'source_id': 2237987199365376, 'n_rows': 88, 'n_transits': 88, 'n_points': 80, 'ccd_total': 880, 'ccd_used': 702, 'too_few_ccd': 8, 'span_yr': 5.048768721738499, 'median_sigma_mas': 1.2303413101263019, 'median_inflation': 1.0}
+[    8.5s] source 2309425390592896: {'source_id': 2309425390592896, 'n_rows': 75, 'n_transits': 75, 'n_points': 68, 'ccd_total': 750, 'ccd_used': 597, 'too_few_ccd': 7, 'span_yr': 5.0480840150913036, 'median_sigma_mas': 0.05089053172816442, 'median_inflation': 1.0}
+[    8.5s] source 3926186255616949504: {'source_id': 3926186255616949504, 'n_rows': 81, 'n_transits': 81, 'n_points': 54, 'ccd_total': 810, 'ccd_used': 462, 'too_few_ccd': 27, 'span_yr': 5.133919557904363, 'median_sigma_mas': 0.7133985023001715, 'median_inflation': 1.0}
+[    8.5s] source 3937211745905473024: {'source_id': 3937211745905473024, 'n_rows': 90, 'n_transits': 90, 'n_points': 63, 'ccd_total': 900, 'ccd_used': 558, 'too_few_ccd': 27, 'span_yr': 4.921588098103269, 'median_sigma_mas': 0.0479576263664752, 'median_inflation': 1.2178129767866859}
+[    8.5s] source 4181040337841125632: {'source_id': 4181040337841125632, 'n_rows': 97, 'n_transits': 97, 'n_points': 72, 'ccd_total': 970, 'ccd_used': 637, 'too_few_ccd': 25, 'span_yr': 4.745299304714362, 'median_sigma_mas': 0.03736187714765005, 'median_inflation': 1.0}
+[    8.5s] source 4318465066420528000: {'source_id': 4318465066420528000, 'n_rows': 77, 'n_transits': 77, 'n_points': 63, 'ccd_total': 770, 'ccd_used': 558, 'too_few_ccd': 14, 'span_yr': 5.095158148657869, 'median_sigma_mas': 0.03546010251938463, 'median_inflation': 1.13333861977001}
+[    8.5s] source 435469040545191680: {'source_id': 435469040545191680, 'n_rows': 81, 'n_transits': 81, 'n_points': 74, 'ccd_total': 810, 'ccd_used': 649, 'too_few_ccd': 7, 'span_yr': 4.761013120050871, 'median_sigma_mas': 0.050203643520905714, 'median_inflation': 1.0}
+[    8.5s] source 60730287810150016: {'source_id': 60730287810150016, 'n_rows': 73, 'n_transits': 73, 'n_points': 70, 'ccd_total': 730, 'ccd_used': 608, 'too_few_ccd': 3, 'span_yr': 5.021369587688776, 'median_sigma_mas': 1.6306576230579457, 'median_inflation': 1.0}
+[    8.5s] gate block bh3_5p
+[    8.5s] gate block bh3_orbit
+[    9.4s] gate block hd114762_orbit
+[   15.8s] gate block gaia4_orbit
+[   25.7s] gate block qso1
+[   26.1s] gate block qso2
+[   26.5s] gate block qso3
+[   26.9s] gate block injection_recovery
+[   58.7s] VALIDATION VALIDATED (25/25 gates)
+[   58.7s] 5p: N=72 clipped=0 jitter=0.0000 mas plx=1.0012+-0.0096
+[   60.1s] S_obs=7.093 at P=1640 e=0.30
+[  237.0s] thresholds gauss=20.289 perm=16.653  p=0.2174/0.1059
+[  249.4s] inj iso m=1.0 det=0.210 exc=0.855
+[  260.2s] inj iso m=2.5 det=0.910 exc=1.000
+[  269.2s] inj iso m=4.0 det=0.995 exc=1.000
+[  279.6s] inj iso m=5.8 det=1.000 exc=1.000
+[  288.7s] inj iso m=8.0 det=1.000 exc=1.000
+[  297.7s] inj iso m=12.0 det=1.000 exc=1.000
+[  305.1s] inj iso m=18.0 det=1.000 exc=1.000
+[  312.4s] inj iso m=25.0 det=1.000 exc=1.000
+[  321.0s] inj edge m=1.0 det=0.075 exc=0.880
+[  330.1s] inj edge m=2.5 det=0.845 exc=1.000
+[  339.1s] inj edge m=4.0 det=0.990 exc=1.000
+[  347.3s] inj edge m=5.8 det=1.000 exc=1.000
+[  356.7s] inj edge m=8.0 det=1.000 exc=1.000
+[  368.5s] inj edge m=12.0 det=1.000 exc=1.000
+[  376.5s] inj edge m=18.0 det=1.000 exc=1.000
+[  385.1s] inj edge m=25.0 det=1.000 exc=1.000
+[  393.3s] inj k20 m=1.0 det=0.495 exc=0.810
+[  402.5s] inj k20 m=2.5 det=0.990 exc=1.000
+[  409.8s] inj k20 m=4.0 det=1.000 exc=1.000
+[  418.3s] inj k20 m=5.8 det=1.000 exc=1.000
+[  426.6s] inj k20 m=8.0 det=1.000 exc=1.000
+[  433.6s] inj k20 m=12.0 det=1.000 exc=1.000
+[  440.4s] inj k20 m=18.0 det=1.000 exc=1.000
+[  447.9s] inj k20 m=25.0 det=1.000 exc=1.000
+[  540.2s] rehearsal: S_obs=7.09 thr=20.29 limits={"m50_detect_iso": {"mass_earth": 1.6214285714285714, "flag": "interp"}, "m90_detect_iso": {"mass_earth": 2.4785714285714286, "flag": "interp"}, "m95_exclusion_iso": {"mass_earth": 1.9827586206896548, "flag": "interp"}, "m50_detect_edge": {"mass_earth": 1.8279220779220777, "flag": "interp"}, "m90_detect_edge": {"mass_earth": 3.06896551724138, "flag": "interp"}, "m95_exclusion_edge": {"mass_earth": 1.8749999999999996, "flag": "interp"}, "m50_detect_k20": {"mass_earth": 1.0151515151515151, "flag": "interp"}, "m90_detect_k20": {"mass_earth": 2.2272727272727275, "flag": "interp"}, "m95_exclusion_k20": {"mass_earth": 2.1052631578947363, "flag": "interp"}}
+[  540.2s] done

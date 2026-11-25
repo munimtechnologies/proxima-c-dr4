@@ -1,0 +1,17 @@
+{
+ "_note": "DR4 day (2026-12-02 11:00 UTC or later): copy to compete/proxima-c-dr4/job.json in that run, drop _note, and set workdir to a folder of that run that holds only dr4_bootstrap.py (copied from this repo). The bootstrap downloads tag v0.2.1 of this repo: the frozen v0.1.0 analysis code plus the v0.2.0 DataLink I/O.",
+ "name": "proxima-c-dr4-v1",
+ "kind": "compete",
+ "workdir": "<run folder>/proxima",
+ "image": "python:3.12",
+ "setup": [],
+ "run": [
+  "python dr4_bootstrap.py --tag v0.2.1 -- --data-dir /data --out-dir /out --validated"
+ ],
+ "network": true,
+ "data_urls": [],
+ "data_key": "proxima-dr4",
+ "cpu": 1,
+ "memory_gb": 1,
+ "timeout_minutes": 300
+}
